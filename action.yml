@@ -1,0 +1,45 @@
+name: "Metax-Simple-Jenkins-Action"
+description: "Start Metax Jenkins jobs and report back url and status of build"
+author: "metax"
+inputs:
+  url:
+    description: "Metax Jenkins URL"
+    default: 'https://cicd.metax-tech.com/'
+  job_name:
+    description: "Jenkins job name to build e.g. github_control"
+    required: true
+  username:
+    description: "Jenkins username"
+    required: true
+  api_token:
+    description: "Jenkins API token"
+    required: true
+  cookies:
+    description: 'Cookies to include in HTTP requests in JSON format e.g. `{"field1":"value1"}`'
+    required: false
+  timeout:
+    description: "Timeout in seconds for build to complete e.g. 2h"
+    required: false
+    default: "7200"
+  start_timeout:
+    description: "Timeout in seconds for build to start e.g. 1h"
+    required: false
+    default: "3600"
+  interval:
+    description: "How frequently in seconds to query Jenkins for build status e.g. 10s"
+    required: false
+    default: "10"
+  pr_number:
+    description: "pull request number, required when running smoke test"
+    required: false
+  project_branch:
+    description: "Github project branch"
+    required: false
+    
+  
+outputs:
+  log_url:
+    description: "Jenkins job log url"
+runs:
+  using: "docker"
+  image: "Dockerfile"
