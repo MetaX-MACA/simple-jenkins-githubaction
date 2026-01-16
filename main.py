@@ -103,7 +103,7 @@ def main():
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
         result, job_console_url, console_text = build_job(
-            jenkins, job_name, interval, start_timeout, timeout, **parameters
+            jenkins, job_name, interval, start_timeout, timeout, parameters
         )
         if result == "SUCCESS":
             logging.info("Build successful 🎉")
