@@ -41,14 +41,14 @@ outputs:
   log_url:
     description: "Jenkins job log url"
 runs:
-  # using: "docker"
-  # image: "Dockerfile"
-  using: "composite"
-  steps:
-    - name: Setup Docker
-      uses: docker/setup-docker-action@v3
+  using: "docker"
+  image: "Dockerfile"
+  # using: "composite"
+  # steps:
+  #   - name: Setup Docker
+  #     uses: docker/setup-docker-action@v3
       
-    - name: Build and run Action container
-      shell: bash
-      run: |
-        python /app/main.py
+  #   - name: Build and run Action container
+  #     shell: bash
+  #     run: |
+  #       python /app/main.py
